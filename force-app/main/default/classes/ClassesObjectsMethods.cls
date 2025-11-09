@@ -26,7 +26,7 @@
  * Math class: https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_math.htm
  * Classes: https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_classes_understanding.htm
  *
- * @author Your Name
+ * @author Irene Schild
  */
 
 public with sharing class ClassesObjectsMethods {
@@ -39,18 +39,29 @@ public with sharing class ClassesObjectsMethods {
      * @return A list containing the length of the string, a substring of the string, and the string in lower case.
      */
     public static List<String> practiceStringMethods() {
+        List<String> practiceStrings = new List<String>();
+
         // Initialize a String with 'Hello, Salesforce!'
-        
-        // Get the length of the String        
+        String practiceString = 'Hello, Salesforce!';
+
+        // Get the length of the String
         // Get a substring of the String of the first 5 characters
         // Convert the String to lower case
+        
+        Integer lengthString = practiceString.length();
+        String substring = practiceString.substring(0, 5);
+        String lowerCaseString = practiceString.toLowerCase();
         
         // Return the list with the string data
         // In the first position add the string length
         // In the second position add the substring
         // In the third position add the string in lower case
 
-        return null; // Replace null with the variable you used to store the result
+        practiceStrings.add(string.valueOf(lengthString));
+        practiceStrings.add(substring);
+        practiceStrings.add(lowerCaseString);
+
+        return practiceStrings;
     }
 
     /**
@@ -61,15 +72,26 @@ public with sharing class ClassesObjectsMethods {
      * @return A list of boolean values indicating whether the string starts with 'Sales', ends with 'Force', or contains 'Awesome'.
      */
     public static List<Boolean> checkStringContent(String input) {
-        // Initialize a list to store the results
-        
+
+        List<Boolean> results = new List<Boolean>();
+
+        if (input == null) {
+            return results;
+        }
+
         // Check if the string starts with 'Sales'
+        Boolean startsWithSales = input.startsWith('Sales');
+        results.add(startsWithSales);
         
         // Check if the string ends with 'Force'
+        Boolean endsWithForce = input.endsWith('Force');
+        results.add(endsWithForce);
         
         // Check if the string contains 'Awesome'
+        Boolean containsAwesome = input.contains('Awesome');
+        results.add(containsAwesome);
         
-        return null; // Replace null with the variable you used to store the result
+        return results; // Replace null with the variable you used to store the result
     }
 
     /**
@@ -80,16 +102,22 @@ public with sharing class ClassesObjectsMethods {
      * @return A string consisting of only unique words from the input sentence.
      */
     public static String removeDuplicateWords(String sentence) {
+        if (sentence == null) {
+            return null;
+        }
+
         // Split the sentence into words
+        List<String> words = sentence.split(' ');
 
         // Create a set to store the unique words
-
         // Add each word to the set
+        Set<String> uniqueWords = new Set<String>(words);
 
         // Join the unique words back into a sentence
+        String result = string.join(uniqueWords, ' ');
 
         // Return the sentence with unique words
-        return null; // Replace null with the variable you used to store the result
+        return result;
     }
 
     /**
@@ -102,6 +130,12 @@ public with sharing class ClassesObjectsMethods {
      */
     public static Integer countVowels(String str) {
         // Initialize the result Integer
+        Integer vowelCount = 0;
+
+        if (str == null) {
+            return vowelCount;
+        }
+
 
         /*
         for () {
@@ -111,7 +145,15 @@ public with sharing class ClassesObjectsMethods {
         }
         */
 
-        return null; // Replace null with the variable you used to store the result
+        for (String letter : str.split('')) {
+            
+            if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u') {
+                vowelCount += 1;
+            }
+
+        }
+
+        return vowelCount;
     }
 
     /**
@@ -126,16 +168,25 @@ public with sharing class ClassesObjectsMethods {
         List<String> scientistNames = new List<String>{'Tim Berners-Lee', 'Alan Turing', 'Grace Hopper', 'Donald Knuth', 'Guido van Rossum', 'Ken Thompson', 'Stephen Hawking'};
 
         // The variable to store the concatenated string
+        String names = '';
 
         // Loop through the list of scientists' names
+        for (String name : scientistNames) {
 
             // If the name doesn't contain the letter 'G', skip this iteration
+            if (name.contains('g') || name.contains('G')) {
+                // Add the name to the result string, followed by a comma
+                names = names + name + ', ';
+            }
 
-            // Add the name to the result string, followed by a comma
+        }
 
         // Remove the last comma from the result string
+        if (names.endsWith(', ')) {
+            names = names.left(names.length() - 2);
+        }
 
-        return null; // Replace null with the variable you used to store the result
+        return names; // Replace null with the variable you used to store the result
     }
 
     /**
