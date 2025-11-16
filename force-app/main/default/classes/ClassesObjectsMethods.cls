@@ -51,7 +51,7 @@ public with sharing class ClassesObjectsMethods {
         Integer lengthString = practiceString.length();
         String substring = practiceString.substring(0, 5);
         String lowerCaseString = practiceString.toLowerCase();
-        
+
         // Return the list with the string data
         // In the first position add the string length
         // In the second position add the substring
@@ -63,6 +63,7 @@ public with sharing class ClassesObjectsMethods {
 
         return practiceStrings;
     }
+
 
     /**
      * Question 2
@@ -94,6 +95,7 @@ public with sharing class ClassesObjectsMethods {
         return results; // Replace null with the variable you used to store the result
     }
 
+
     /**
      * Question 3
      * Take a sentence then remove any duplicate words, and return the sentence with only unique words.
@@ -120,6 +122,7 @@ public with sharing class ClassesObjectsMethods {
         return result;
     }
 
+
     /**
      * Question 4
      * This method takes a string as a parameter, and calculates the number of vowels in the string.
@@ -136,6 +139,7 @@ public with sharing class ClassesObjectsMethods {
             return vowelCount;
         }
 
+        str = str.toLowerCase();
 
         /*
         for () {
@@ -146,7 +150,7 @@ public with sharing class ClassesObjectsMethods {
         */
 
         for (String letter : str.split('')) {
-            
+
             if (letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u') {
                 vowelCount += 1;
             }
@@ -155,6 +159,7 @@ public with sharing class ClassesObjectsMethods {
 
         return vowelCount;
     }
+
 
     /**
      * Question 5
@@ -189,6 +194,7 @@ public with sharing class ClassesObjectsMethods {
         return names;
     }
 
+
     /**
      * Question 6
      * This method calculates the absolute value of the difference between of two input numbers that are raised to the 2nd power.
@@ -215,6 +221,7 @@ public with sharing class ClassesObjectsMethods {
         return differenceAbs;
     }
 
+
     /**
      * Question 7
      * Generate a random number between 50 and 100
@@ -230,6 +237,7 @@ public with sharing class ClassesObjectsMethods {
         // Return the random integer
         return randomNumber;
     }
+
 
     /**
      * Question 8
@@ -247,6 +255,7 @@ public with sharing class ClassesObjectsMethods {
         // Return the result
         return dateTodayString;
     }
+
 
     /**
      * Question 9
@@ -303,6 +312,7 @@ public with sharing class ClassesObjectsMethods {
         return year2 - year1;
     }
 
+
     /**
      * Question 11
      * The Book class represents a book in a library. 
@@ -351,6 +361,7 @@ public with sharing class ClassesObjectsMethods {
         return bookDetails;
     }
 
+
     /**
      * Question 13
      * Create and update two Book objects and returns the books.
@@ -370,11 +381,11 @@ public with sharing class ClassesObjectsMethods {
         List<Book> books = new List<Book>();
 
         // Update the title and author of myBook1
-        mybook1.author = 'J.K. Rowling';
-        mybook1.title = 'Harry Potter and the Chamber of Secrets';
+        myBook1.author = 'J.K. Rowling';
+        myBook1.title = 'Harry Potter and the Chamber of Secrets';
 
         // Update the pages for myBook1 to 352
-        mybook1.pages = 352;
+        myBook1.pages = 352;
 
         // Create a new Book object with title "A Brief History of Time" and author "Stephen Hawking"
         Book book = new Book('A Brief History of Time', 'Stephen Hawking');
@@ -385,7 +396,7 @@ public with sharing class ClassesObjectsMethods {
         // Add the book to the list
         books.add(myBook1);
         books.add(book);
-        
+
         return books; // Replace null with the variable you used to store the result      
     }
 
@@ -483,6 +494,7 @@ public with sharing class ClassesObjectsMethods {
         return person;
     }
 
+
     /**
      * Question 17
      * Create a method that constructs multiple Person objects.
@@ -512,6 +524,7 @@ public with sharing class ClassesObjectsMethods {
         return persons;
     }
 
+    
     /**
      * Question 18
      * Compare two Person objects based on their ages.
@@ -528,7 +541,7 @@ public with sharing class ClassesObjectsMethods {
             return null;
         }
 
-        if (person1.age > person2.age) {
+        if (person1.getAge() > person2.getAge()) {
             return person1;
         }
         else {
